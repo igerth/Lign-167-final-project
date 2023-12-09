@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaCards - AI Flashcard Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>LinguaCards</h1>
+        <h2>LIGN 101 Flashcard Assistant with Integrated Q&A</h2>
+    </header>
+
+    <section class="flashcard-generation-section">
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <button type="submit" name="submit">Upload File</button>
+        </form>
+
+        <input type="text" id="lectureNotes" placeholder="Enter lecture notes here...">
+
+        <input type="number" id="numberInput" placeholder="#" min="0" max="100" value="0">
+
+        <button id="generateButton">Generate</button>
+
+        <button id="clearButton">Clear</button>
+
+        <!-- Script for file upload -->
+        <script>
+            document.getElementById('uploadForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+            
+                const formData = new FormData(this);
+
+                const num_flashcards = document.getElementById('numberInput').value;
+
+                formData.append('numberField', num_flashcards);
+
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    displayData(data);
+                    // Handle success
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle errors
+                });
+            });
+
+            document.getElementById('generateButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+            
+                const lectureNotes = document.getElementById('lectureNotes').value;
+                const num_flashcards = document.getElementById('numberInput').value;
+
+                const data = {
+                    notes: lectureNotes,
+                    number: num_flashcards
+                };
+
+                console.log(data)
+
+                fetch('/process_notes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    displayData(data);
+                    // Handle success
+                    document.getElementById('lectureNotes').value = '';
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle errors
+                });
+            });
+
+            function displayData(data) {
+                const container = document.getElementById('data-container');
+                container.innerHTML = ''; // Clear existing content
+
+                console.log(data)
+
+                // Assuming your JSON structure is like the one you provided
+                data.flashcards.forEach(flashcard => {
+                    // Create elements for each piece of data
+                    const flashcardDiv = document.createElement('div');
+                    flashcardDiv.className = 'flashcard';
+
+                    const term = document.createElement('h3');
+                    term.textContent = flashcard.term;
+
+                    const explanation = document.createElement('p');
+                    explanation.textContent = flashcard.explanation;
+
+                    // Append to the container
+                    flashcardDiv.appendChild(term);
+                    flashcardDiv.appendChild(explanation);
+                    container.appendChild(flashcardDiv);
+                });
+            }
+            
+        </script>
+
+        <script>
+            document.getElementById('clearButton').addEventListener('click', function() {
+                const container = document.getElementById('data-container');
+                container.innerHTML = ''; // Clear existing content
+                document.getElementById('fileToUpload').value = '';
+            });
+        </script>
+
+        
+
+        <!-- Script for min / max number of flashcards to generate -->
+        <script>
+            document.getElementById('numberInput').addEventListener('input', function(e) {
+                let value = parseFloat(e.target.value);
+                if (e.target.value < 0) {
+                    e.target.value = 0;
+                }
+                else if (e.target.value > 100) {
+                    e.target.value = 100;
+                }
+                else if (!Number.isInteger(value)) {
+                    e.target.value = Math.round(value);
+                }
+                
+            });
+        </script>
+
+        
+
+    </section>
+    
+    <!-- Flashcards display -->  
+    
+    <div id="data-container"></div>
+
+    
+
+    <!-- Chatbox display -->
+
+    <button id="openChatBtn"><img src="{{ url_for('static', filename='images/chatbox-icon-4.png') }}" id="chatBoxIcon" /></button>
+
+    <div class="chat-box" id="chatBox">
+        <button id="closeChatBtn">X</button>
+        
+        <div class="chat-content" id="chat-content">
+            <ul class="chatBX">
+                <li class="chat incoming">
+                    <p>Hello, I am here to assist you today with your Linguistics needs. <br> Please feel free to ask me any questions. </p>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+        </div>
+        
+    </div>
+
+    <!-- Script for opening / closing chatbox -->
+    <script>
+        document.getElementById('openChatBtn').addEventListener('click', function() {
+            document.getElementById('chatBox').style.display = 'block'; // Show chat box
+            this.style.display = 'none'; // Hide open button
+        });
+
+        document.getElementById('closeChatBtn').addEventListener('click', function() {
+            document.getElementById('chatBox').style.display = 'none'; // Hide chat box
+            document.getElementById('openChatBtn').style.display = 'block'; // Show open button
+            document.getElementById('openChatBtn').style.display = 'flex';
+        });
+    </script>
+
+    <!-- Script for displaying user input to chatbox -->
+    <script>
+        const chatInput = document.querySelector(".input-group input");
+        const sendButton = document.getElementById('send-button');
+        const chatBox = document.querySelector(".chatBX");
+
+        let userMessage; 
+
+        const createChatLi = (message, className) => {
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("chat", className);
+            let chatContent = className === "outgoing" ? `<p>${message}</p>` : `<p>${message}</p>`;
+            chatLi.innerHTML = chatContent;
+            return chatLi;
+        }
+
+        const generateResponse = (incomingChatLi) => {
+            const messageElement = incomingChatLi.querySelector("p");
+            const session_id = localStorage.getItem('pageLoadCount');
+            
+            sendMessageToServer(userMessage, session_id)
+                .then(response => {
+                    // Handle the response
+                    messageElement.textContent = response.output;
+                })
+                .catch(error => {
+                    messageElement.textContent = "Oops! Something went wrong. Please try again later.";
+                });
+
+        }
+
+        const handleChat = () => {
+            userMessage = chatInput.value.trim();
+            if(!userMessage) return;
+
+            chatBox.appendChild(createChatLi(userMessage, "outgoing"));
+            document.getElementById('chat-input').value = '';
+
+            setTimeout(() => {
+                const incomingChatLi = createChatLi("Thinking...", "incoming");
+                chatBox.appendChild(incomingChatLi);
+                generateResponse(incomingChatLi);
+
+            }, 600); 
+        }
+
+        sendButton.addEventListener('click', handleChat);
+
+        async function sendMessageToServer(userInput, session_id) {
+            try {
+                const response = await fetch('/process_string', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ input1: userInput, input2: session_id })
+                });
+
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error:', error);
+                return null;
+            }
+        }
+
+    </script>
+
+    <div id="loadCountContainer">Session ID: <span id="loadCount">0</span></div>
+
+    <script>
+        window.onload = function() {
+            // Retrieve the current count from localStorage
+            let count = localStorage.getItem('pageLoadCount');
+
+            // If count does not exist, initialize it to 0
+            if (count === null) {
+                count = 0;
+            }
+        
+            // Increment the count
+            count++;
+        
+            // Update the count in localStorage
+            localStorage.setItem('pageLoadCount', count);
+        
+            // Update the count display on the webpage
+            document.getElementById('loadCount').textContent = count;
+        };
+    </script>
+
+    <footer>
+        <p>LIGN 167 final project by Hiba Shaikh, Jade Vasquez, and Ian Gerth</p>
+    </footer>
+    
+</body>
+</html>

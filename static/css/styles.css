@@ -1,0 +1,269 @@
+body, html {
+    background-color: #6c7d8c;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #343f44;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header h2 {
+    font-size: 1.2em;
+}
+
+/* ------------ Flashcard input section ------------ */
+
+.flashcard-generation-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.flashcard-generation-section input {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #6c7d8c;
+}
+
+#lectureNotes {
+    width: 45%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #6c7d8c;
+}
+
+#lectureNotes:focus {
+    outline: 3px solid rgba(85,91,105, 0.6);
+}
+
+.flashcard-generation-section input:focus {
+    outline: 3px solid rgba(85,91,105, 0.6);
+}
+
+.flashcard-generation-section button {
+    padding: 10px 20px;
+    background-color: #555b69;
+    color: white;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #6c7d8c;
+}
+
+.flashcard-generation-section button:hover {
+    background-color: #40454f;
+}
+
+/* ------------ Flashcards ------------ */
+
+/* Styling for the flashcard container */
+#data-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Basic styling for each flashcard */
+.flashcard {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the term (title) of the flashcard */
+.flashcard h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Styling for the explanation part of the flashcard */
+.flashcard p {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* Hover effect for flashcards */
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------ Chatbox section ------------ */
+
+#openChatBtn {
+    position: fixed;
+    bottom: 60px;
+    right: 10px;
+    padding: 10px 15px;
+    background-color: #555b69;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+#chatBoxIcon {
+    height: auto;
+    width: 40px;
+    object-fit: contain;
+}
+
+#openChatBtn:hover {
+    background-color: #40454f;
+}
+
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 60px;
+    right: 10px;
+    width: 300px;
+    border: 1px solid #6c7d8c;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#closeChatBtn {
+    padding: 5px 10px;
+    background-color: #555b69; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    width: 30px;
+
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#closeChatBtn:hover {
+    background-color: #40454f;
+}
+
+.input-group {
+    display: flex;
+    align-items: center; /* Aligns items vertically center */
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+}
+
+#chat-input:focus {
+    outline: 3px solid rgba(85,91,105, 0.6);
+}
+
+#send-button {
+    padding: 10px;
+    background-color: #555b69;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+}
+
+#send-button:hover {
+    background-color: #40454f;
+}
+
+.chat-content {
+    height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: white;
+    margin-top: 10px; /* Spacing between input group and content */
+}
+
+.chatBX {
+    padding-left: 0px;
+}
+
+.chatBX .chat {
+    display: flex;
+}
+
+.chatBX .outgoing {
+    margin: 20px 0;
+    justify-content: flex-end;
+}
+
+.chatBX .chat p {
+    color: white;
+    max-width: 75%;
+    font-size: 0.75rem;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    background: #40454f;
+}
+
+.chatBX .incoming p {
+    color: #000;
+    background: #d4d8e4;
+    border-radius: 10px 10px 10px 0;
+}
+
+#loadCountContainer {
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 50px; /* Align to the bottom */
+    left: 0; /* Align to the left */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white; /* White text color */
+    padding: 10px; /* Some padding around the text */
+    margin: 10px; /* Margin from the edges of the viewport */
+    border-radius: 5px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Font styling */
+    font-size: 1em; /* Font size */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a bit of depth */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+footer {
+    background-color: #343f44;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
