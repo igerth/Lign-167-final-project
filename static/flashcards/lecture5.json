@@ -1,0 +1,14 @@
+{
+  "flashcards": [
+  {"term": "IPA (International Phonetic Alphabet)", "explanation": "A standardized system of phonetic notation that represents each sound (phoneme) of spoken language uniquely."},
+  {"term": "Articulation", "explanation": "The physical production of particular speech sounds."},
+  {"term": "Coarticulation", "explanation": "The phenomenon of a speech sound being influenced by, and often overlapping with, surrounding sounds."},
+  {"term": "Nasalization", "explanation": "A phonetic feature in which air flows through the nose during the articulation of a sound, especially a vowel."},
+  {"term": "Tone Languages", "explanation": "Languages in which variations in pitch during the pronunciation of a word can alter the meaning of the word."},
+  {"term": "Phonetic Transcription", "explanation": "The use of IPA symbols to represent the sounds of spoken language in a detailed written form."},
+  {"term": "Voiced Sounds", "explanation": "Speech sounds produced with vibration of the vocal cords, such as [d] and [n]."},
+  {"term": "Voiceless Sounds", "explanation": "Speech sounds produced without the vibration of the vocal cords, such as [t] and [k]."},
+  {"term": "Sine Wave Speech", "explanation": "A synthesized form of speech which strips away the natural timbre and tone, leaving only three sine wave tones to represent the speech sounds."},
+  {"term": "McGurk Effect", "explanation": "A perceptual phenomenon that demonstrates an interaction between hearing and vision in speech perception. When a sound (e.g., 'ba') is heard in alignment with a video that shows someone pronouncing another sound (e.g., 'ga'), the viewer may perceive a third sound (e.g., 'da')."}
+ ]
+}

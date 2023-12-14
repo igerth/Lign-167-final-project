@@ -1,0 +1,14 @@
+{
+  "flashcards": [
+      {"term": "Phonetics", "explanation": "The study of the sounds of language, which includes the physical production, acoustic properties, and perception of speech sounds."},
+      {"term": "IPA Chart", "explanation": "A chart of the International Phonetic Alphabet, used to represent the sounds of spoken language in a consistent and standardized format."},
+      {"term": "Articulatory Phonetics", "explanation": "The branch of phonetics concerned with how speech sounds are physically made, or articulated, by the speaker."},
+      {"term": "Voicing", "explanation": "Refers to whether the vocal cords are vibrating (voiced sounds) or not vibrating (voiceless sounds) during the production of a consonant."},
+      {"term": "Place of Articulation", "explanation": "The location within the vocal tract where a consonant sound is produced, such as bilabial (lips), alveolar (tongue against the alveolar ridge), etc."},
+      {"term": "Manner of Articulation", "explanation": "How speech organs interact to create specific sounds, such as stops (complete closure), fricatives (narrow constriction), or nasals (sound resonance through the nasal cavity)."},
+      {"term": "Consonants", "explanation": "Speech sounds that are characterized by a constriction or closure at one or more points along the vocal tract."},
+      {"term": "Vowels", "explanation": "Speech sounds produced with an open vocal tract, with various tongue and lip positions to modulate the quality."},
+      {"term": "Acoustic Phonetics", "explanation": "The branch of phonetics that deals with the physical properties of speech sounds as they travel through the air."},
+      {"term": "Speech Perception", "explanation": "How the brain processes and interprets the sounds of language that it hears."}
+  ]
+}

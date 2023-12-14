@@ -343,7 +343,31 @@
             });
         });
 
+        document.getElementById('lecture4').addEventListener('click', function() {
+            fetch('/static/flashcards/lecture4.json')
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the data
+                displayData(data);
+            })
+            .catch(error => {
+                console.error('Error fetching lecture4:', error);
+                
+            });
+        });
 
+        document.getElementById('lecture5').addEventListener('click', function() {
+            fetch('/static/flashcards/lecture5.json')
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the data
+                displayData(data);
+            })
+            .catch(error => {
+                console.error('Error fetching lecture5:', error);
+                
+            });
+        });
 
     </script>
 
