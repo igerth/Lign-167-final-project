@@ -26,15 +26,14 @@
 
         <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" name="fileToUpload" id="fileToUpload">
-            <button type="submit" name="submit">Upload File</button>
         </form>
 
         <!-- Script for file upload -->
         <script>
-            document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            document.getElementById('generateButton').addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default form submission
             
-                const formData = new FormData(this);
+                const formData = new FormData(document.getElementById('uploadForm'));
 
                 const num_flashcards = document.getElementById('numberInput').value;
 
