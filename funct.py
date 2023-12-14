@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-openai.api_key = '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'
+openai.api_key = ' API KEY '
 
 overview = """Context for LIGN 101 - Introduction to the Study of Language at UCSD
 
@@ -380,7 +380,7 @@ def generate_flashcards(text, num_flashcards, model_name="gpt-4-1106-preview"):
     :return: List of flashcards in the specified format.
     """
 
-    openai.api_key = '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'  # Replace with your actual OpenAI API key
+    openai.api_key = ' API KEY '  # Replace with your actual OpenAI API key
 
     # Prepare the chat completion request
     messages = [
