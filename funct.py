@@ -380,7 +380,7 @@ def generate_flashcards(text, num_flashcards, model_name="gpt-4-1106-preview"):
     :return: List of flashcards in the specified format.
     """
 
-    openai.api_key = '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'  # Replace with your actual OpenAI API key
+    openai.api_key = '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'  # Replace with your actual OpenAI API key
 
     # Prepare the chat completion request
     messages = [
