@@ -1,0 +1,34 @@
+{
+  "flashcards": [
+    {"term": "Linguistics",
+     "explanation": "The scientific study of language and its structure, including morphology, syntax, phonetics, and semantics."
+    },
+    {"term": "Phonetics",
+     "explanation": "The branch of linguistics that studies the sounds of human speech."
+    },
+    {"term": "Morphology",
+     "explanation": "The study of the form and structure of words in a language, including inflection, derivation, and composition."
+    },
+    {"term": "Syntax",
+     "explanation": "The set of rules, principles, and processes that govern the structure of sentences in a given language."
+    },
+    {"term": "Phonology",
+     "explanation": "The branch of linguistics that deals with the systematic organization of sounds in languages."
+    },
+    {"term": "Semantics",
+     "explanation": "The branch of linguistics that studies meaning in language."
+    },
+    {"term": "Pragmatics",
+     "explanation": "The study of how context influences the interpretation of meaning in language."
+    },
+    {"term": "Computational Linguistics",
+     "explanation": "The field of study focused on the use of computational methods to process and analyze linguistic data."
+    },
+    {"term": "Field Linguistics",
+     "explanation": "The study and documentation of languages in their natural context, often involving in-depth work with native speakers."
+    },
+    {"term": "Forensic Linguistics",
+     "explanation": "The application of linguistic knowledge, methods, and insights to the forensic context of law, crime investigation, trial, and judicial procedure."
+    }
+  ]
+}
