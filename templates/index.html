@@ -31,7 +31,7 @@
 
         <div id="loadingSymbol" class="loading-symbol" style="display: none;">
             <!-- Loading symbol (e.g., spinner or loading GIF) -->
-            <img src="path_to_loading_spinner.gif" alt="Loading...">
+            <img src="{{ url_for('static', filename='images/chatbox-icon-4.png') }}" alt="Loading...">
         </div>
 
         <!-- Script for file upload -->
@@ -110,7 +110,7 @@
                     explanation.textContent = flashcard.explanation;
 
                     document.getElementById('loadingSymbol').style.display = 'none';
-                    
+
                     // Append to the container
                     flashcardDiv.appendChild(term);
                     flashcardDiv.appendChild(explanation);
