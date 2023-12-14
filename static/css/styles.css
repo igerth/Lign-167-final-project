@@ -69,17 +69,7 @@ header h2 {
     background-color: #40454f;
 }
 
-.loading-symbol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px; /* Space from the preceding elements */
-}
 
-.loading-symbol img {
-    width: 30px; /* Adjust as needed */
-    height: 30px; /* Adjust as needed */
-}
 
 /* ------------ Flashcards ------------ */
 
