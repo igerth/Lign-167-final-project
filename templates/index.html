@@ -235,6 +235,7 @@
 
         const handleChat = () => {
             userMessage = chatInput.value.trim();
+            console.log(userMessage);
             if(!userMessage) return;
 
             chatBox.appendChild(createChatLi(userMessage, "outgoing"));
