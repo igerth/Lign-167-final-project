@@ -50,7 +50,9 @@ header h2 {
     outline: 3px solid rgba(85,91,105, 0.6);
 }
 
-
+.flashcard-generation-section input:focus {
+    outline: 3px solid rgba(85,91,105, 0.6);
+}
 
 .flashcard-generation-section button {
     padding: 10px 20px;
