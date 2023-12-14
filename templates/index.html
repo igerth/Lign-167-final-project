@@ -96,28 +96,40 @@
                 container.innerHTML = ''; // Clear existing content
 
                 console.log(data)
-                
+
                 document.getElementById('loadingSymbol').style.display = 'none';
 
                 // Assuming your JSON structure is like the one you provided
-                data.flashcards.forEach(flashcard => {
-                    // Create elements for each piece of data
-                    const flashcardDiv = document.createElement('div');
-                    flashcardDiv.className = 'flashcard';
+                
+                try {
+                    data.flashcards.forEach(flashcard => {
+                        // Create elements for each piece of data
+                        const flashcardDiv = document.createElement('div');
+                        flashcardDiv.className = 'flashcard';
 
-                    const term = document.createElement('h3');
-                    term.textContent = flashcard.term;
+                        const term = document.createElement('h3');
+                        term.textContent = flashcard.term;
 
-                    const explanation = document.createElement('p');
-                    explanation.textContent = flashcard.explanation;
+                        const explanation = document.createElement('p');
+                        explanation.textContent = flashcard.explanation;
 
+
+
+                        // Append to the container
+                        flashcardDiv.appendChild(term);
+                        flashcardDiv.appendChild(explanation);
+                        container.appendChild(flashcardDiv);
+                    });
+                } catch (error) {
+                    console.error("Error processing flashcards: ", error);
+
+                    const errorMessageDiv = document.createElement('div');
+                    errorMessageDiv.className = 'error-message';
                     
-
-                    // Append to the container
-                    flashcardDiv.appendChild(term);
-                    flashcardDiv.appendChild(explanation);
-                    container.appendChild(flashcardDiv);
-                });
+                    errorMessageDiv.textContent = 'An error occurred while processing flashcards.';
+                    
+                    container.appendChild(errorMessageDiv);
+                }
             }
             
         </script>
