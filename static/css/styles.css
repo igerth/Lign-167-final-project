@@ -278,6 +278,9 @@ header h2 {
 /* ------------ Pre-loaded flashcard section ------------ */
 
 .button-container {
+    position: fixed; 
+    bottom: 50px; 
+    
     display: flex; 
     
     justify-content: center;
