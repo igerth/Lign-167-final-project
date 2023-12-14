@@ -28,13 +28,19 @@
 
             <button id="clearButton">Clear</button>
         </div>
-            
+
+        <div id="loadingSymbol" class="loading-symbol" style="display: none;">
+            <!-- Loading symbol (e.g., spinner or loading GIF) -->
+            <img src="path_to_loading_spinner.gif" alt="Loading...">
+        </div>
 
         <!-- Script for file upload -->
         <script>
             document.getElementById('generateButton').addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default form submission
 
+                document.getElementById('loadingSymbol').style.display = 'block';
+                
                 const lectureNotes = document.getElementById('lectureNotes').value;
                 const num_flashcards = document.getElementById('numberInput').value;
                 const fileInput = document.getElementById('fileToUpload');
@@ -103,6 +109,8 @@
                     const explanation = document.createElement('p');
                     explanation.textContent = flashcard.explanation;
 
+                    document.getElementById('loadingSymbol').style.display = 'none';
+                    
                     // Append to the container
                     flashcardDiv.appendChild(term);
                     flashcardDiv.appendChild(explanation);
