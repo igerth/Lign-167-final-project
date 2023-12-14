@@ -1,0 +1,14 @@
+{
+  "flashcards": [
+    {"term": "Language", "explanation": "A system of communication used by a particular country or community."},
+    {"term": "Dialect", "explanation": "A particular form of a language which is peculiar to a specific region or social group."},
+    {"term": "Sociolect", "explanation": "A dialect spoken by a particular social class or group."},
+    {"term": "Idiolect", "explanation": "The speech habits peculiar to a particular person."},
+    {"term": "Language Documentation", "explanation": "The field of linguistics dedicated to describing languages and their grammatical structures."},
+    {"term": "Prescriptive Grammar", "explanation": "Rules of grammar prescribed by grammarians on how a language should or should not be used."},
+    {"term": "Descriptive Grammar", "explanation": "A set of rules about language based on how it is actually used, not how it should be used."},
+    {"term": "Code Switching", "explanation": "The practice of alternating between two or more languages or varieties of language in conversation."},
+    {"term": "Fractal Language", "explanation": "The concept that language patterns can become increasingly complex and detailed the closer you look."},
+    {"term": "Emojiolect", "explanation": "An individual's unique use of emojis to communicate, reflecting a person's idiolect."}
+  ]
+}

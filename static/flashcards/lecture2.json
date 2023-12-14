@@ -1,0 +1,44 @@
+{
+  "flashcards": [
+      {
+          "term": "Arbitrariness",
+          "explanation": "The characteristic of language where there is no necessary or intrinsic relationship between the signs (e.g., words, gestures) and the things they signify."
+      },
+      {
+          "term": "Productivity",
+          "explanation": "The feature of language that allows speakers to create and understand an infinite number of sentences, including those that have never been uttered before."
+      },
+      {
+          "term": "Recursion",
+          "explanation": "The capability of language to embed clauses within clauses, allowing for the creation of potentially infinite sentences."
+      },
+      {
+          "term": "Universal Grammar (UG)",
+          "explanation": "The theoretical system of principles and structures that are inherent to all human languages, proposed by Noam Chomsky."
+      },
+      {
+          "term": "Signifiers",
+          "explanation": "The forms in a language, such as sounds, words, or gestures, that represent meaning."
+      },
+      {
+          "term": "Signified",
+          "explanation": "The concept, object, or meaning represented by a signifier in language."
+      },
+      {
+          "term": "Onomatopoeia",
+          "explanation": "Words that phonetically imitate, resemble, or suggest the sound that they describe, such as 'buzz' or 'meow'."
+      },
+      {
+          "term": "Grammar",
+          "explanation": "The set of structural rules governing the composition of clauses, phrases, and words in a natural language."
+      },
+      {
+          "term": "Iconicity",
+          "explanation": "A property of language where the form of a sign (word or gesture) is directly related to its meaning."
+      },
+      {
+          "term": "Discrete Units",
+          "explanation": "The distinct and separate elements, such as phonemes, morphemes, and words, that make up a language."
+      }
+  ]
+}
