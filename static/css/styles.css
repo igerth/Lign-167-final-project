@@ -280,11 +280,13 @@ header h2 {
 .button-container {
     position: fixed; 
     bottom: 50px; 
-    
+
     display: flex; 
     
     justify-content: center;
     padding: 20px; 
+
+    margin: 0 auto;
 }
 
 .bottom-button {
