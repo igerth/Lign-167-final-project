@@ -14,10 +14,7 @@
     </header>
 
     <section class="flashcard-generation-section">
-        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <button type="submit" name="submit">Upload File</button>
-        </form>
+        
 
         <input type="text" id="lectureNotes" placeholder="Enter lecture notes here...">
 
@@ -26,6 +23,11 @@
         <button id="generateButton">Generate</button>
 
         <button id="clearButton">Clear</button>
+
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <button type="submit" name="submit">Upload File</button>
+        </form>
 
         <!-- Script for file upload -->
         <script>
