@@ -117,6 +117,7 @@ header h2 {
     font-size: 1em;
     line-height: 1.4;
     text-align: justify;
+    max-height: 100px;
     display: none;
 }
 
