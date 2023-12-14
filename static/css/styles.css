@@ -260,8 +260,6 @@ header h2 {
     border-radius: 10px 10px 10px 0;
 }
 
-/* ------------ Pre-loaded flashcard section ------------ */
-
 #loadCountContainer {
     position: fixed; 
     bottom: 50px; 
@@ -277,12 +275,14 @@ header h2 {
     z-index: 1000; 
 }
 
+/* ------------ Pre-loaded flashcard section ------------ */
+
 .button-container {
     display: flex; 
     
     justify-content: center;
     padding: 20px; 
-    background-color: #f5f5f5;
+
     border-top: 1px solid #ddd;
 }
 
