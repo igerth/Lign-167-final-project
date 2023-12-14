@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 overview = """Context for LIGN 101 - Introduction to the Study of Language at UCSD
 
