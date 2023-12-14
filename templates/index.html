@@ -15,18 +15,20 @@
 
     <section class="flashcard-generation-section">
         
+        <div class="input-group">
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/    form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </form>
+            
+            <input type="text" id="lectureNotes" placeholder="Enter lecture notes   here...">
 
-        <input type="text" id="lectureNotes" placeholder="Enter lecture notes here...">
+            <input type="number" id="numberInput" placeholder="#" min="0" max="100"     value="0">
 
-        <input type="number" id="numberInput" placeholder="#" min="0" max="100" value="0">
+            <button id="generateButton">Generate</button>
 
-        <button id="generateButton">Generate</button>
-
-        <button id="clearButton">Clear</button>
-
-        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload">
-        </form>
+            <button id="clearButton">Clear</button>
+        </div>
+            
 
         <!-- Script for file upload -->
         <script>
