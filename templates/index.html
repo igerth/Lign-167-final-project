@@ -96,6 +96,8 @@
                 container.innerHTML = ''; // Clear existing content
 
                 console.log(data)
+                
+                document.getElementById('loadingSymbol').style.display = 'none';
 
                 // Assuming your JSON structure is like the one you provided
                 data.flashcards.forEach(flashcard => {
@@ -109,7 +111,7 @@
                     const explanation = document.createElement('p');
                     explanation.textContent = flashcard.explanation;
 
-                    document.getElementById('loadingSymbol').style.display = 'none';
+                    
 
                     // Append to the container
                     flashcardDiv.appendChild(term);
