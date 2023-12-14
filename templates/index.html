@@ -30,62 +30,58 @@
 
         <!-- Script for file upload -->
         <script>
-            document.getElementById('generateButton').addEventListener('click', function(event) {
+            document.getElementById('generateAndUploadButton').addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default form submission
-            
-                const formData = new FormData(document.getElementById('uploadForm'));
 
-                const num_flashcards = document.getElementById('numberInput').value;
-
-                formData.append('numberField', num_flashcards);
-
-                fetch('/upload', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    displayData(data);
-                    // Handle success
-                })
-                .catch(error => {
-                    console.error(error);
-                    // Handle errors
-                });
-            });
-
-            document.getElementById('generateButton').addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-            
                 const lectureNotes = document.getElementById('lectureNotes').value;
                 const num_flashcards = document.getElementById('numberInput').value;
+                const fileInput = document.getElementById('fileToUpload');
 
-                const data = {
-                    notes: lectureNotes,
-                    number: num_flashcards
-                };
+                // Check if lecture notes are provided
+                if (lectureNotes.trim() !== '') {
+                    const notesData = {
+                        notes: lectureNotes,
+                        number: num_flashcards
+                    };
 
-                console.log(data)
+                    fetch('/process_notes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(notesData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        displayData(data);
+                        document.getElementById('lectureNotes').value = '';
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                }
 
-                fetch('/process_notes', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    displayData(data);
-                    // Handle success
-                    document.getElementById('lectureNotes').value = '';
-                })
-                .catch(error => {
-                    console.error(error);
-                    // Handle errors
-                });
+                // Check if a file is selected for upload
+                if (fileInput.files.length > 0) {
+                    const formData = new FormData(document.getElementById('uploadForm'));
+                    formData.append('numberField', num_flashcards);
+
+                    fetch('/upload', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        displayData(data);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                }
+
             });
+
 
             function displayData(data) {
                 const container = document.getElementById('data-container');
