@@ -117,12 +117,18 @@ header h2 {
     font-size: 1em;
     line-height: 1.4;
     text-align: justify;
+    display: none;
 }
 
 /* Hover effect for flashcards */
 .flashcard:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Show the explanation part when hovering over the flashcard */
+.flashcard:hover p {
+    display: block; 
 }
 
 /* ------------ Chatbox section ------------ */
